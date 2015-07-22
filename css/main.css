@@ -1,5 +1,3 @@
-
-
 /* ==========================================================================
    Author's custom styles
    ========================================================================== */
@@ -8,18 +6,27 @@ body {
     padding-top: 50px;
     padding-bottom: 20px;
 }
+#emailListing {
+    margin-top: 20px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+.emailListing {
+    border-radius: 3px;
+    -moz-border-radius: 3px;
+    height: 120px;
+    overflow: hidden;
+    padding: 13px;
+}
+.emailListing img {}
+.emailListing .date {
+    font-size: 0.5e;
+    color: blue;
+}
+emailListing .subject {
+    font-size: 0.8em;
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+.selected{
+    background-color: aliceblue;
+}
