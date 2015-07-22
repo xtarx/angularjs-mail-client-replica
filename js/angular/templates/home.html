@@ -20,13 +20,13 @@
 
             <div class="form-group">
                 <label for="exampleInputEmail2">To</label>
-                <input type="email" class="form-control" id="exampleInputEmail2" placeholder="jane.doe@example.com">
+                <input type="email" class="form-control" id="exampleInputEmail2" ng-model="reply.to">
             </div>
             <div class="form-group">
                 <textarea class="form-control" placeholder="Message......" ng-model="reply.body"></textarea>
             </div>
             <button class="btn btn-default" ng-click="sendReply()">Send</button>
-            <button class="btn btn-danger" ng-click="cancelReply()">Cancel</button>
+            <button class="btn btn-danger" ng-click="toggleReplyForm()">Cancel</button>
 
         </form>
         <div class="row header">
@@ -36,7 +36,7 @@
 
         <div class="row action">
             <div class="col-sm-8">{{selectedMail.from.join(", ")}} to {{selectedMail.to}}</div>
-            <a ng-click="showReply()" class="btn btn-default">Reply</a>
+            <a ng-click="toggleReplyForm()" class="btn btn-default">Reply</a>
             <div class="col-sm-12" ng-bind="selectedMail.body"></div>
 
         </div>

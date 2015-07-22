@@ -5,6 +5,7 @@ app.controller('HomeController', ['$scope', function ($scope) {
     $scope.selectedMail;
     $scope.setSelectedMail = function (mail) {
         $scope.selectedMail = mail;
+        
     };
 
     $scope.isSelected = function (mail) {
@@ -36,8 +37,20 @@ app.controller('MailListingController', ['$scope', '$http', function ($scope, $h
         })
 }]);
 app.controller('ContentController', ['$scope', function ($scope) {
-    $scope.showingReply=false;
-    $scope.showReply=function(){
-        $scope.showingReply=true;
+    $scope.showingReply = false;
+    $scope.reply = {};
+    $scope.toggleReplyForm = function () {
+        $scope.showingReply = !$scope.showingReply;
+        $scope.reply = {};
+        $scope.reply.to = $scope.selectedMail.from.join(", ");
+        $scope.reply.body = "\n\n ----------\n\n" + $scope.selectedMail.body;
     };
+    
+    //watch digest loop to overcome reply window not closing when selected message changes
+
+    $scope.$watch('selectedMail',function(evt){
+        $scope.showingReply=false;
+        $scope.reply={};
+        
+    });
 }]);
