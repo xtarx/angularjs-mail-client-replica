@@ -13,6 +13,9 @@ html, body, .main-container, .emails-container {
 .no-left-pad {
     padding-left: 0!important;
 }
+.no-right-pad {
+    padding-right: 0!important;
+}
 
 .emails-container {
     color: #fff;
@@ -22,6 +25,7 @@ html, body, .main-container, .emails-container {
 .emails-container ul li {
     margin: 0;
     padding: 0;
+    width: 100%;
     display: inline-block;    
 }
 

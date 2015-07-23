@@ -1,14 +1,17 @@
-<div class="emailListing" ng-click="handleClick()">
-    <div ng-transclude ></div>
+<div class="emailListing no-right-pad" ng-click="handleClick()">
+    <div ng-transclude></div>
     <div class="col-xs-3 text-center">
         <img ng-src="{{gravatarImage}}" alt="{{email.from[0]}}">
     </div>
-    
+
     <div class="col-xs-9 no-left-pad">
-        <span class="fromLine">
-            <b>{{email.from.join(', ')}}</b> to
-            <b>{{email.to}}</b>
+        <div class="row">
+            <span class="fromLine">            
+            <b>{{email.from}}</b>
         </span>
-        <span class="subjet">{{email.subject}}</span>        
+        </div>
+        <div class="row">
+            <span class="subjet">{{email.subject}}</span>
+        </div>
     </div>
 </div>
