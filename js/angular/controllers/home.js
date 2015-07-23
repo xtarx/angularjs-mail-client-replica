@@ -99,4 +99,48 @@ app.controller('ContentController', ['$scope', '$rootScope', 'mailService', func
         $scope.reply = {};
 
     });
+
 }]);
+
+app.directive('emailListing', function () {
+    var url = "http://www.gravatar.com/avatar/";
+
+    return {
+        restrict: 'EA',
+        replace: false,
+        //if set to false then will append, else replace
+        // if set to true then a new scope will be created
+        //isolate scopes indendted of parent scopes
+        scope: {
+            email: '=', //accept an object as a param
+            action: '&', //accept a fun as a  param
+            shouldUseGravatar: '@', //accept a string as a param
+            gravatarSize: '@', //accept a string as a param
+
+        },
+        transclude:true,
+        templateUrl: 'js/angular/templates/emailListing.html',
+        //link: // called after compile fun, set listenrs, watchers  form DOM manuplation
+        controller: ['$scope', '$element', '$attrs', '$transclude',
+                    function ($scope, $element, $attrs, $transclude) {
+                $scope.handleClick = function () {
+                    $scope.action({
+                        selectedMail: $scope.email
+                    });
+                }
+                   }
+                   ],
+        link: function (scope, element, attrs) {
+            var size = attrs.gravatarSize || 80;
+
+            //scope.gravatarImage="haha";
+            var hash = 'b3e04a46e85ad3e165d66f5d927eb609';
+            scope.gravatarImage = url + hash + '?s=' + size;
+            element.bind('click', function () {
+                //remove class in any other elements
+                element.parent().children().removeClass('selected');
+                element.addClass('selected');
+            });
+        }
+    };
+});

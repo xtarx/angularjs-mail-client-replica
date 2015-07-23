@@ -23,10 +23,13 @@ body {
     font-size: 0.5e;
     color: blue;
 }
-emailListing .subject {
+.emailListing .subject {
     font-size: 0.8em;
+}
+.emailListing:hover {
+    background-color: aliceblue;
 }
 
 .selected{
-    background-color: aliceblue;
+    background-color: aqua;
 }
