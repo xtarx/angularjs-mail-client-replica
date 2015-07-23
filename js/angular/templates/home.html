@@ -1,4 +1,4 @@
-<div class="col-sm-4" ng-controller="MailListingController">
+<div class="col-sm-3 emails-container" ng-controller="MailListingController">
 
     <input class="form-control" type="search" placeholder="Filter messages" ng-model="search" />
 
@@ -6,7 +6,7 @@
         <li email-listing email="mail" gravatarSize='20' action='setSelectedMail(selectedMail)' ng-repeat="mail in email| filter:search"> </li>
     </ul>
 </div>
-<div class="col-sm-8" ng-controller="ContentController">
+<div class="col-sm-9" ng-controller="ContentController">
     <h2>Content</h2>
     <div ng-show="!selectedMail">
         <h2>No Conversation Selected</h2>

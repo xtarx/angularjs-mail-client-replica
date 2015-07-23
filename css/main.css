@@ -3,33 +3,75 @@
    ========================================================================== */
 
 body {
-    padding-top: 50px;
-    padding-bottom: 20px;
+    padding-top: 51px;
 }
+
+html, body, .main-container, .emails-container {
+    height: 100%;
+}
+
+.no-left-pad {
+    padding-left: 0!important;
+}
+
+.emails-container {
+    color: #fff;
+    padding: 0;
+}
+
+.emails-container ul li {
+    margin: 0;
+    padding: 0;
+    display: inline-block;    
+}
+
+.emails-container input {
+    padding: 24px 10px;
+    border-radius: 0;
+    border: 0;
+    background: #666;
+    color: #fff;
+}
+
+#emailsListing {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    background: #333;
+}
+
 #emailListing {
     margin-top: 20px;
     overflow-y: scroll;
     overflow-x: hidden;
 }
+
 .emailListing {
-    border-radius: 3px;
-    -moz-border-radius: 3px;
-    height: 120px;
+    cursor: pointer;
     overflow: hidden;
-    padding: 13px;
+    padding: 12px 0;
 }
-.emailListing img {}
+
+.emailListing img {
+    border-radius: 100%;
+    width: 80%;
+}
+
 .emailListing .date {
     font-size: 0.5e;
     color: blue;
 }
+
 .emailListing .subject {
     font-size: 0.8em;
 }
+
 .emailListing:hover {
-    background-color: aliceblue;
+    background-color: #555;
 }
 
 .selected{
-    background-color: aqua;
+    background-color: #222;
 }

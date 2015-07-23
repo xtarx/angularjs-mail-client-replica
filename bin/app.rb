@@ -10,7 +10,7 @@ get '/' do
 end
 
 post '/api/send' do
-  sleep 3
+  sleep 1
   {result: 'true'}.to_json
 end
 
