@@ -1,41 +1,54 @@
-<div class="col-sm-3 emails-container" ng-controller="MailListingController">
+<div class="emails-container" ng-controller="MailListingController">
 
-    <input class="form-control" type="search" placeholder="Filter messages" ng-model="search" />
+    <div class="search-field">
+        <input class="form-control" type="search" placeholder="Filter messages" ng-model="search" />
+    </div>
 
     <ul id="emailsListing">
         <li email-listing email="mail" gravatarSize='20' action='setSelectedMail(selectedMail)' ng-repeat="mail in email| filter:search"> </li>
     </ul>
 </div>
-<div class="col-sm-9" ng-controller="ContentController">
+<div class="mail-container" ng-controller="ContentController">
     
-    <div ng-show="!selectedMail">
+    <div class="none-selected" ng-show="!selectedMail">
         <h2>No Conversation Selected</h2>
     </div>
-    <div ng-show="selectedMail">
-        <form class="form" id="replyForm" ng-submit="sendEmailReply()" ng-show="showingReply">
 
-            <div class="form-group">
+    <div ng-show="selectedMail">
+        <div class="mail-header">
+            <div class="pull-left">
+                <div class="avatar">
+                    <img ng-src="http://www.gravatar.com/avatar/b3e04a46e85ad3e165d66f5d927eb609?">
+                </div>
+                <div class="info">
+                    <div class="subject">{{selectedMail.subject}}</div>
+                    <div class="">{{selectedMail.from.join(", ")}} to {{selectedMail.to}}</div>
+                </div>
+            </div>
+
+            <div class="pull-right">
+                <!-- <div class="date">{{selectedMail.sent_at | date:"dd/MM/yy"}}</div> -->
+                <a ng-click="toggleReplyForm()" class="btn btn-default reply-btn pull-right">Reply</a>
+            </div>
+        </div>
+
+        <div class="mail-content">
+            <div ng-bind="selectedMail.body"></div>
+        </div>
+
+        <form class="form" id="replyForm" ng-submit="sendEmailReply()" ng-show="showingReply">
+            <!-- <div class="form-group">
                 <label for="exampleInputEmail2">To</label>
                 <input type="email" class="form-control" id="exampleInputEmail2" ng-model="reply.to">
-            </div>
+            </div> -->
             <div class="form-group">
-                <textarea class="form-control" placeholder="Message......" ng-model="reply.body"></textarea>
+                <textarea class="form-control" rows="4" placeholder="Message......" ng-model="reply.body"></textarea>
             </div>
-            <button class="btn btn-default" ng-click="sendReply()">Send</button>
-            <button class="btn btn-danger" ng-click="toggleReplyForm()">Cancel</button>
-
+            <div class="pull-right">
+                <button class="btn btn-danger" ng-click="toggleReplyForm()">Cancel</button>
+                <button class="btn btn-default" ng-click="sendReply()">Send</button>
+            </div>
         </form>
-        <div class="row header">
-            <div class="col-sm-6">{{selectedMail.subject}}</div>
-            <div class="col-sm-6">{{selectedMail.sent_at | date:"dd/MM/yy"}}</div>
-        </div>
-
-        <div class="row action">
-            <div class="col-sm-8">{{selectedMail.from.join(", ")}} to {{selectedMail.to}}</div>
-            <a ng-click="toggleReplyForm()" class="btn btn-default">Reply</a>
-            <div class="col-sm-12" ng-bind="selectedMail.body"></div>
-
-        </div>
-
     </div>
+
 </div>
