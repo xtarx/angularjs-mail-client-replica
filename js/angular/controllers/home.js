@@ -18,10 +18,38 @@ app.controller('HomeController', ['$scope', function ($scope) {
 
 app.service('mailService', ['$http', '$q', function ($http, $q) {
     var getMail = function () {
-        return $http({
-            method: 'GET',
-            url: '/api/mail'
-        });
+        // return $http({method: 'GET',url: '/api/mail'});
+        return [
+        {
+            "body": "Integer aliquet, massa id lobortis convallis, tortor risus dapibus augue, vel accumsan tellus nisi eu orci. Mauris lacinia sapien quis libero. Nullam sit amet turpis elementum ligula vehicula consequat. Morbi a ipsum. Integer a nibh. In quis justo. Maecenas rhoncus aliquam lacus. Morbi quis tortor id nulla ultrices aliquet. Maecenas leo odio, condimentum id, luctus nec, molestie sed, justo. Pellentesque viverra pede ac diam.",
+            "subject": "vel accumsan tellus nisi",
+            "from": "amontgomery0@jiathis.com",
+            "sent_at": "2011-04-09 10:17:55",
+            "to": "me@example.com"
+            },
+        {
+            "body": "Vestibulum rutrum rutrum neque. Aenean auctor gravida sem. Praesent id massa id nisl venenatis lacinia. Aenean sit amet justo. Morbi ut odio. Cras mi pede, malesuada in, imperdiet et, commodo vulputate, justo. In blandit ultrices enim. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Proin interdum mauris non ligula pellentesque ultrices. Phasellus id sapien in sapien iaculis congue.",
+            "subject": "posuere",
+            "from": "pshaw1@studiopress.com",
+            "sent_at": "2011-02-14 14:27:00",
+            "to": "me@example.com"
+            },
+        {
+            "body": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Proin risus. Praesent lectus. Vestibulum quam sapien, varius ut, blandit non, interdum in, ante. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Duis faucibus accumsan odio. Curabitur convallis. Duis consequat dui nec nisi volutpat eleifend. Donec ut dolor. Morbi vel lectus in quam fringilla rhoncus. Mauris enim leo, rhoncus sed, vestibulum sit amet, cursus id, turpis.",
+            "subject": "aliquam",
+            "from": "psanchez2@apache.org",
+            "sent_at": "2012-06-25 00:09:55",
+            "to": "me@example.com"
+            },
+        {
+            "body": "Maecenas rhoncus aliquam lacus. Morbi quis tortor id nulla ultrices aliquet. Maecenas leo odio, condimentum id, luctus nec, molestie sed, justo. Pellentesque viverra pede ac diam. Cras pellentesque volutpat dui. Maecenas tristique, est et tempus semper, est quam pharetra magna, ac consequat metus sapien ut nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Mauris viverra diam vitae quam. Suspendisse potenti. Nullam porttitor lacus at turpis. Donec posuere metus vitae ipsum.",
+            "subject": "augue vel",
+            "from": "mshaw3@oakley.com",
+            "sent_at": "2011-04-05 07:09:14",
+            "to": "me@example.com"
+            },
+
+            ];
     }
     var sendEmail = function (mail) {
         var d = $q.defer();
@@ -55,13 +83,15 @@ app.controller('MailListingController', ['$scope', 'mailService', function ($sco
     $scope.email = [];
     $scope.nYearsAgo = 10;
 
-    mailService.getMail()
-        .success(function (data, status, headers) {
-            $scope.email = data.all;
-        }).error(function (data, status, headers) {
+    // mailService.getMail()
+    //     .success(function (data, status, headers) {
+    //         $scope.email = data.all;
+    //     }).error(function (data, status, headers) {
 
-        })
+    //     })
 
+$scope.email=mailService.getMail();
+console.log($scope.email);
     $scope.searchPastNYears = function (email) {
         var emailSentAtDate = new Date(email.sent_at);
         var nYearsAgoDate = new Date();
