@@ -118,7 +118,7 @@ app.directive('emailListing', function () {
             gravatarSize: '@', //accept a string as a param
 
         },
-        transclude:true,
+        transclude: true,
         templateUrl: 'js/angular/templates/emailListing.html',
         //link: // called after compile fun, set listenrs, watchers  form DOM manuplation
         controller: ['$scope', '$element', '$attrs', '$transclude',

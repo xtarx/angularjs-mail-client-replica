@@ -10,12 +10,12 @@ app.config(function ($routeProvider, $locationProvider) {
             controller: 'HomeController'
         })
         .when('/settings', {
-        templateUrl: "js/angular/templates/settings.html",
-        controller: 'SettingsController'
+            templateUrl: "js/angular/templates/settings.html",
+            controller: 'SettingsController'
         })
 
     .otherwise({
         redirectTo: '/'
     });
-//    $locationProvider.html5Mode(true);
+    //    $locationProvider.html5Mode(true);
 });
