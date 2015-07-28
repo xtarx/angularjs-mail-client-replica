@@ -1,0 +1,189 @@
+/* ==========================================================================
+   MAIL app styles
+   ========================================================================== */
+
+html, body, .main-container, .emails-container {
+    font-family: 'Source Sans Pro', sans-serif;
+    height: 100%;
+}
+
+.no-left-pad {
+    padding-left: 0!important;
+}
+
+.no-right-pad {
+    padding-right: 0!important;
+}
+
+input, textarea {
+    box-shadow: none!important;
+}
+
+textarea {
+    resize: vertical;
+    border: 2px solid #dadee1!important;
+}
+
+.btn-default:hover,
+.btn-default:active {
+    color: #fff;
+    background: #40b1d0;
+    border-color: #40b1d0;
+}
+
+::selection {
+    color: #fff;
+    background: #40b1d0;
+}
+
+/* ==========================================================================
+   EMAIL CONTAINER
+   ========================================================================== */
+.none-selected {
+    text-align: center;
+    margin-top: 100px;
+    color: #4e5260;
+}
+
+.emails-container {
+    color: #fff;
+    padding: 0;
+    width: 340px;
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+}
+
+.mail-container {
+    margin-left: 340px;
+    padding: 40px 80px;
+}
+
+.mail-header {
+    position: relative;
+    border-bottom: 2px solid #eceff3;
+    padding-bottom: 40px;
+}
+
+.mail-header:after, .mail-content:after {
+    clear: both;
+    content: "";
+    display: block;
+}
+
+.mail-header .avatar, .mail-header .info {
+    float: left;
+    color: #b5bdc9;
+}
+
+.mail-header .avatar {
+    width: 58px;
+    padding-right: 10px;
+}
+
+.mail-header .avatar img {
+    width: 100%;
+    border-radius: 6px;
+}
+
+.mail-header .subject {
+    color: #4e5260;
+    line-height: 1;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.mail-header .date {
+    color: #b5bdc9;
+}
+
+.mail-header .reply-btn {
+    margin: 8px 0;
+    border-color: #dadee1;
+}
+
+.mail-content {
+    font-size: 16px;
+    color: #72778d;
+    padding-top: 40px;
+}
+
+#replyForm {
+    padding-top: 40px;
+}
+
+/* ==========================================================================
+   EMAILS LIST
+   ========================================================================== */
+.emails-container ul li {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    display: block;    
+}
+
+.search-field {
+    padding: 15px;
+    background: #1f2332;
+}
+
+.search-field input {
+    color: #fff;
+    padding: 12px 14px;
+    background: #1f2332;
+    border-radius: 20px;
+    border: 1px solid #3d4256;
+}
+
+#emailsListing {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    background: #3b3f53;
+}
+
+#emailListing {
+    margin-top: 20px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.emailListing {
+    cursor: pointer;
+    overflow: hidden;
+    padding: 24px 0;
+    color: #afb4cc;
+    border-bottom: 1px solid #333647;
+    border-left: 3px solid #3b3f53;
+}
+
+.emailListing img {
+    padding: 4px;
+    border-radius: 6px;
+    width: 80%;
+}
+
+.emailListing .date {
+    font-size: 0.5em;
+    color: blue;
+}
+
+.emailListing .subject {
+    font-size: 0.8em;
+}
+
+.emailListing:hover {
+    background-color: #3b3f53;
+}
+
+.selected .emailListing {
+    background-color: #282b3a;
+    border-left: 3px solid #42afce;
+}
+
+.selected .emailListing .fromLine {
+    color: #fff;
+}
